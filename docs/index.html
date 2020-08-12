@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+
+<html>
+
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="canonical" href="https://www.hexstreamsoft.com/libraries/enhanced-find-class/" />
+    <meta name="author" content="Jean-Philippe Paradis" />
+    <link rel="author" href="https://abc.hexstream.xyz/" />
+    <link rel="license" href="https://www.hexstreamsoft.com/UNLICENSE" />
+    <meta name="description" content="Provides a canonical way of converting class designators to classes." />
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <title>enhanced-find-class | Libraries | HexstreamSoft</title>
+    <link href="https://www.hexstreamsoft.com/css/global.css" rel="stylesheet" type="text/css" />
+    <link href="https://www.hexstreamsoft.com/libraries/libraries.css" rel="stylesheet" type="text/css" />
+    <link href="https://global.hexstreamsoft.com/css/cl-definitions.css" rel="stylesheet" type="text/css" />
+    <link href="index.css" rel="stylesheet" type="text/css" />
+    <script src="https://global.hexstreamsoft.com/scripts/global.js"></script>
+    <script src="https://www.hexstreamsoft.com/scripts/global.js"></script>
+    <script src="https://www.hexstreamsoft.com/libraries/libraries.js" defer></script>
+  </head>
+
+  <body>
+
+    <nav id="top-nav">
+
+      <div class="main">
+
+        <div class="breadcrumbs">
+          <a href="https://www.hexstreamsoft.com/">HexstreamSoft</a>
+          <span class="crumb"><span class="s"> » </span><a href="https://www.hexstreamsoft.com/libraries/">Libraries</a></span>
+          <span class="crumb"><span class="s"> » </span><a class="here">enhanced-find-class</a></span>
+        </div>
+
+        <nav class="tabs" id="meta-nav">
+          <ul>
+            <li><a class="github" href="https://github.com/Hexstream/enhanced-find-class"><span>See on GitHub</span></a></li>
+          </ul>
+        </nav>
+
+      </div>
+
+      <p id="last-updated"><span>This page was last updated on </span><time datetime="2020-08-12">12 august 2020</time><span>.</span></p>
+
+    </nav>
+
+    <main>
+
+      <header id="page-header">
+        <h1>enhanced-find-class</h1>
+      </header>
+
+      <div class="tags contains-groups">
+        <div class="group prominent">
+          <span class="tag hv license">
+            <span class="h">License<span>:</span></span>
+            <span class="v">Public Domain</span>
+          </span>
+          <span class="s">, </span>
+          <span class="tag hv quicklisp">
+            <span class="h">Load it with Quicklisp<span>:</span></span>
+            <code class="v">(ql:quickload "enhanced-find-class")</code>
+          </span>
+        </div>
+        <div class="group">
+          <span class="tag hv">
+            <span class="h">Library type<span>:</span></span>
+            <span class="v">Convenience function</span>
+          </span>
+          <span class="s">, </span>
+          <span class="tag hv">
+            <span class="h">Project complexity<span>:</span></span>
+            <span class="v">Embarrassingly trivial</span>
+          </span>
+        </div>
+      </div>
+
+      <nav class="tabs" id="further-info">
+        <ul>
+          <li><a href="https://www.hexstreamsoft.com/libraries/releases/latest-versions/#enhanced-find-class">Latest release</a></li>
+          <li><a href="https://www.hexstreamsoft.com/libraries/dependencies/#enhanced-find-class">Dependencies</a></li>
+        </ul>
+        <ul>
+          <li><a href="https://www.hexstreamsoft.com/libraries/external-pages-xref/#enhanced-find-class">External library pages</a></li>
+        </ul>
+      </nav>
+
+      <section id="introduction">
+
+        <p><dfn><code class="relevant">enhanced-find-class</code></dfn> provides a canonical way of converting <a href="http://www.lispworks.com/documentation/HyperSpec/Body/26_glo_c.htm#class_designator" target="_blank">class designators</a> to <a href="http://www.lispworks.com/documentation/HyperSpec/Body/t_class.htm#class" target="_blank">classes</a>.</p>
+
+      </section>
+
+      <nav class="tabs">
+        <ul>
+          <li><a href="#overview">Overview</a></li>
+          <li><a href="#dictionary">Dictionary</a></li>
+        </ul>
+      </nav>
+
+      <section id="overview">
+
+        <h1 class="breadcrumbs-bar">
+          <span class="section-relative-nav">
+            <a href="#overview" class="anchor">⚓</a>
+          </span>
+          <span class="breadcrumbs">
+            <a class="here">Overview</a>
+          </span>
+        </h1>
+
+        <p>For whatever reason, <a href="http://www.lispworks.com/documentation/HyperSpec/Body/f_find_c.htm" target="_blank">find-class</a> does not accept a class as first argument, making conversion of <a href="http://www.lispworks.com/documentation/HyperSpec/Body/26_glo_c.htm#class_designator" target="_blank">class designators</a> to <a href="http://www.lispworks.com/documentation/HyperSpec/Body/t_class.htm#class" target="_blank">classes</a> unnecessary painful due to the manual workarounds needed.<br />This is in contrast to <a href="http://www.lispworks.com/documentation/HyperSpec/Body/f_find_p.htm" target="_blank">find-package</a>, which accepts a package, and <a href="http://www.lispworks.com/documentation/HyperSpec/Body/f_find_r.htm" target="_blank">find-restart</a>, which accepts a restart, plus countless user-defined functions also wisely obeying the convention.</p>
+
+        <p>This library provides a drop-in replacement for <a href="http://www.lispworks.com/documentation/HyperSpec/Body/f_find_c.htm" target="_blank">find-class</a> that addresses this pain point once and for all.</p>
+
+      </section>
+
+      <section id="dictionary">
+
+        <h1 class="breadcrumbs-bar">
+          <span class="section-relative-nav">
+            <a href="#dictionary" class="anchor">⚓</a>
+          </span>
+          <span class="breadcrumbs">
+            <a class="here">Dictionary</a>
+          </span>
+        </h1>
+
+        <nav class="tabs">
+          <ul>
+            <li><a href="#dictionary_enhanced-find-class"><span class="type">Package</span> <code>enhanced-find-class</code></a></li>
+            <li><a href="#dictionary_boolean"><span class="type">Function</span> <code>find-class</code></a></li>
+          </ul>
+        </nav>
+
+        <section id="dictionary_enhanced-find-class">
+
+          <h1 class="breadcrumbs-bar">
+            <span class="section-relative-nav">
+              <a href="#dictionary_enhanced-find-class" class="anchor">⚓</a>
+            </span>
+            <span class="breadcrumbs">
+              <a href="#dictionary">Dictionary</a>
+              <span class="crumb"><span class="s"> » </span><a class="here">enhanced-find-class</a></span>
+            </span>
+          </h1>
+
+          <article class="package definition">
+
+            <h1><span class="type">Package</span> <span class="name self">enhanced-find-class</span></h1>
+
+            <section class="description">
+              <h1>Description</h1>
+              <p>Simply <code>(:shadowing-import-from #:enhanced-find-class #:<code class="relevant"><a href="#dictionary_find-class">find-class</a></code>)</code> from your <a href="http://www.lispworks.com/documentation/HyperSpec/Body/m_defpkg.htm" target="_blank">defpackage</a>. Don't <code>(:use)</code>!</p>
+            </section>
+
+          </article>
+
+        </section>
+
+        <section id="dictionary_find-class">
+
+          <h1 class="breadcrumbs-bar">
+            <span class="section-relative-nav">
+              <a href="#dictionary_find-class" class="anchor">⚓</a>
+            </span>
+            <span class="breadcrumbs">
+              <a href="#dictionary">Dictionary</a>
+              <span class="crumb"><span class="s"> » </span><a class="here">find-class</a></span>
+            </span>
+          </h1>
+
+          <article class="function definition">
+
+            <h1><span class="type">Function</span> <span class="name self">find-class</span></h1>
+
+            <p class="args-and-retvals"><var>class-designator</var> &amp;optional <var>errorp</var> <var>environment</var> =&gt; <var>class-or-nil</var></p>
+
+            <section class="arguments-and-values">
+              <h1>Arguments and Values</h1>
+              <ul>
+                <li><var>class-designator</var> -- A <a href="http://www.lispworks.com/documentation/HyperSpec/Body/26_glo_c.htm#class_designator" target="_blank">class designator</a>.</li>
+                <li><var>errorp</var> -- A <a href="http://www.lispworks.com/documentation/HyperSpec/Body/26_glo_g.htm#generalized_boolean" target="_blank">generalized boolean</a>. The default is true.</li>
+                <li><var>class-or-nil</var> -- A class or <code>nil</code>.</li>
+              </ul>
+            </section>
+
+            <section class="description">
+              <h1>Description</h1>
+              <p>The semantics are exactly the same as for <a href="http://www.lispworks.com/documentation/HyperSpec/Body/f_find_c.htm" target="_blank">cl:find-class</a>, except that if <var>class-designator</var> is a class then it is immediately returned (instead of signaling an error), regardless of the other arguments.</p>
+              <p>To help ensure proper optimization, this function is <a href="http://www.lispworks.com/documentation/HyperSpec/Body/m_declai.htm" target="_blank">declaimed</a> <a href="http://www.lispworks.com/documentation/HyperSpec/Body/d_inline.htm" target="_blank">inline</a>, its <a href="http://www.lispworks.com/documentation/HyperSpec/Body/d_ftype.htm" target="_blank">ftype</a> is declared, and an appropriate <a href="http://www.lispworks.com/documentation/HyperSpec/Body/m_define.htm" target="_blank">compiler macro</a> is defined so that we expand directly to a <a href="http://www.lispworks.com/documentation/HyperSpec/Body/f_find_c.htm" target="_blank">cl:find-class</a> with the same arguments if <var>class-designator</var> is a constant evaluating to a symbol.</p>
+            </section>
+
+          </article>
+
+        </section>
+
+        <nav class="end-of-section-indicator">
+          <a href="#dictionary">
+            "<span>Dictionary</span>" end.
+          </a>
+        </nav>
+
+      </section>
+
+    </main>
+
+    <footer id="footer">
+      <div class="back-to-top left">
+        <a href="#">⬆</a>
+      </div>
+      <div class="main">
+        <a href="https://validator.w3.org/check?uri=http%3A%2F%2Fwww.hexstreamsoft.com%2Flibraries%2Fenhanced-find-class%2F">✔ HTML5</a>
+        <a href="https://www.hexstreamsoft.com/README">✔ Public Domain</a>
+        <a href="https://jigsaw.w3.org/css-validator/validator?uri=http%3A%2F%2Fwww.hexstreamsoft.com%2Flibraries%2Fenhanced-find-class%2F">✔ CSS3</a>
+        <a>✔ Mobile-friendly</a>
+      </div>
+      <div class="back-to-top right">
+        <a href="#">⬆</a>
+      </div>
+    </footer>
+
+  </body>
+</html>

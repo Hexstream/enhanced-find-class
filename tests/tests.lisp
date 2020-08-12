@@ -1,0 +1,47 @@
+(cl:defpackage #:enhanced-find-class_tests
+  (:use #:cl #:parachute)
+  (:shadow #:test)
+  (:shadowing-import-from #:enhanced-find-class #:find-class))
+
+(cl:in-package #:enhanced-find-class_tests)
+
+(defmacro test (comp expected form)
+  `(progn
+     (is ,comp ,expected ,form)
+     (locally (declare (inline find-class))
+       (is ,comp ,expected ,form))
+     (locally (declare (notinline find-class))
+       (is ,comp ,expected ,form))))
+
+(define-test "main"
+  (let ((ct (cl:find-class t)))
+    (flet ((resolves-to (class-designator class)
+             (let ((d class-designator)
+                   (c class))
+               (when c
+                 (test eq c (find-class d))
+                 (test eq c (find-class d t)))
+               (test eq c (find-class d nil))
+               (test eq c (find-class d nil nil))
+               (when c
+                 (test eq c (find-class d t nil)))))
+           (does-not-resolve (name)
+             (check-type name symbol)
+             (fail (find-class name))
+             (fail (find-class name t))
+             (is eq nil (find-class name nil))
+             (fail (find-class name t nil))
+             (is eq nil (find-class name nil nil))))
+      (resolves-to 't ct)
+      (resolves-to ct ct)
+      (does-not-resolve 'non-existent)
+      (is eq nil (find-class 'non-existent nil))
+      (fail (setf (find-class ct) ct))
+      (fail (setf (find-class ct) nil))
+      #+nil(does-not-resolve 'my-t)
+      (flet ((test-non-canonical-name (class)
+               (is eq class (setf (find-class 'my-t) class))
+               (resolves-to 'my-t class)))
+        (test-non-canonical-name ct)
+        #+nil(test-non-canonical-name nil))
+      #+nil(does-not-resolve 'my-t))))

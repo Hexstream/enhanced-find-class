@@ -98,7 +98,7 @@
 
       <section id="introduction">
 
-        <p><dfn><code class="relevant">enhanced-find-class</code></dfn> provides a canonical way of converting <a href="http://www.lispworks.com/documentation/HyperSpec/Body/26_glo_c.htm#class_designator" target="_blank">class designators</a> to <a href="http://www.lispworks.com/documentation/HyperSpec/Body/t_class.htm#class" target="_blank">classes</a>.</p>
+        <p><dfn><code class="relevant">enhanced-find-class</code></dfn> provides a canonical way of converting <a href="https://www.lispworks.com/documentation/HyperSpec/Body/26_glo_c.htm#class_designator" target="_blank">class designators</a> to <a href="https://www.lispworks.com/documentation/HyperSpec/Body/t_class.htm#class" target="_blank">classes</a>.</p>
 
       </section>
 
@@ -120,9 +120,9 @@
           </span>
         </h1>
 
-        <p>For whatever reason, <a href="http://www.lispworks.com/documentation/HyperSpec/Body/f_find_c.htm" target="_blank">find-class</a> does not accept a class as first argument, making conversion of <a href="http://www.lispworks.com/documentation/HyperSpec/Body/26_glo_c.htm#class_designator" target="_blank">class designators</a> to <a href="http://www.lispworks.com/documentation/HyperSpec/Body/t_class.htm#class" target="_blank">classes</a> unnecessary painful due to the manual workarounds needed.<br />This is in contrast to <a href="http://www.lispworks.com/documentation/HyperSpec/Body/f_find_p.htm" target="_blank">find-package</a>, which accepts a package, and <a href="http://www.lispworks.com/documentation/HyperSpec/Body/f_find_r.htm" target="_blank">find-restart</a>, which accepts a restart, plus countless user-defined functions also wisely obeying the convention.</p>
+        <p>For whatever reason, <a href="https://www.lispworks.com/documentation/HyperSpec/Body/f_find_c.htm" target="_blank">find-class</a> does not accept a class as first argument, making conversion of <a href="https://www.lispworks.com/documentation/HyperSpec/Body/26_glo_c.htm#class_designator" target="_blank">class designators</a> to <a href="https://www.lispworks.com/documentation/HyperSpec/Body/t_class.htm#class" target="_blank">classes</a> unnecessary painful due to the manual workarounds needed.<br />This is in contrast to <a href="https://www.lispworks.com/documentation/HyperSpec/Body/f_find_p.htm" target="_blank">find-package</a>, which accepts a package, and <a href="https://www.lispworks.com/documentation/HyperSpec/Body/f_find_r.htm" target="_blank">find-restart</a>, which accepts a restart, plus countless user-defined functions also wisely obeying the convention.</p>
 
-        <p>This library provides a drop-in replacement for <a href="http://www.lispworks.com/documentation/HyperSpec/Body/f_find_c.htm" target="_blank">find-class</a> that addresses this pain point once and for all.</p>
+        <p>This library provides a drop-in replacement for <a href="https://www.lispworks.com/documentation/HyperSpec/Body/f_find_c.htm" target="_blank">find-class</a> that addresses this pain point once and for all.</p>
 
       </section>
 
@@ -162,7 +162,7 @@
 
             <section class="description">
               <h1>Description</h1>
-              <p>Simply <code>(:shadowing-import-from #:enhanced-find-class #:<code class="relevant"><a href="#dictionary_find-class">find-class</a></code>)</code> from your <a href="http://www.lispworks.com/documentation/HyperSpec/Body/m_defpkg.htm" target="_blank">defpackage</a>. Don't <code>(:use)</code>!</p>
+              <p>Simply <code>(:shadowing-import-from #:enhanced-find-class #:<code class="relevant"><a href="#dictionary_find-class">find-class</a></code>)</code> from your <a href="https://www.lispworks.com/documentation/HyperSpec/Body/m_defpkg.htm" target="_blank">defpackage</a>. Don't <code>(:use)</code>!</p>
             </section>
 
           </article>
@@ -190,16 +190,16 @@
             <section class="arguments-and-values">
               <h1>Arguments and Values</h1>
               <ul>
-                <li><var>class-designator</var> -- A <a href="http://www.lispworks.com/documentation/HyperSpec/Body/26_glo_c.htm#class_designator" target="_blank">class designator</a>.</li>
-                <li><var>errorp</var> -- A <a href="http://www.lispworks.com/documentation/HyperSpec/Body/26_glo_g.htm#generalized_boolean" target="_blank">generalized boolean</a>. The default is true.</li>
+                <li><var>class-designator</var> -- A <a href="https://www.lispworks.com/documentation/HyperSpec/Body/26_glo_c.htm#class_designator" target="_blank">class designator</a>.</li>
+                <li><var>errorp</var> -- A <a href="https://www.lispworks.com/documentation/HyperSpec/Body/26_glo_g.htm#generalized_boolean" target="_blank">generalized boolean</a>. The default is true.</li>
                 <li><var>class-or-nil</var> -- A class or <code>nil</code>.</li>
               </ul>
             </section>
 
             <section class="description">
               <h1>Description</h1>
-              <p>The semantics are exactly the same as for <a href="http://www.lispworks.com/documentation/HyperSpec/Body/f_find_c.htm" target="_blank">cl:find-class</a>, except that if <var>class-designator</var> is a class then it is immediately returned (instead of signaling an error), regardless of the other arguments.</p>
-              <p>To help ensure proper optimization, this function is <a href="http://www.lispworks.com/documentation/HyperSpec/Body/m_declai.htm" target="_blank">declaimed</a> <a href="http://www.lispworks.com/documentation/HyperSpec/Body/d_inline.htm" target="_blank">inline</a>, its <a href="http://www.lispworks.com/documentation/HyperSpec/Body/d_ftype.htm" target="_blank">ftype</a> is declared, and an appropriate <a href="http://www.lispworks.com/documentation/HyperSpec/Body/m_define.htm" target="_blank">compiler macro</a> is defined so that we expand directly to a <a href="http://www.lispworks.com/documentation/HyperSpec/Body/f_find_c.htm" target="_blank">cl:find-class</a> with the same arguments if <var>class-designator</var> is a constant evaluating to a symbol.</p>
+              <p>The semantics are exactly the same as for <a href="https://www.lispworks.com/documentation/HyperSpec/Body/f_find_c.htm" target="_blank">cl:find-class</a>, except that if <var>class-designator</var> is a class then it is immediately returned (instead of signaling an error), regardless of the other arguments.</p>
+              <p>To help ensure proper optimization, this function is <a href="https://www.lispworks.com/documentation/HyperSpec/Body/m_declai.htm" target="_blank">declaimed</a> <a href="https://www.lispworks.com/documentation/HyperSpec/Body/d_inline.htm" target="_blank">inline</a>, its <a href="https://www.lispworks.com/documentation/HyperSpec/Body/d_ftype.htm" target="_blank">ftype</a> is declared, and an appropriate <a href="https://www.lispworks.com/documentation/HyperSpec/Body/m_define.htm" target="_blank">compiler macro</a> is defined so that we expand directly to a <a href="https://www.lispworks.com/documentation/HyperSpec/Body/f_find_c.htm" target="_blank">cl:find-class</a> with the same arguments if <var>class-designator</var> is a constant evaluating to a symbol.</p>
             </section>
 
           </article>
